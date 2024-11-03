@@ -104,7 +104,7 @@ class ConfigService {
         }
     }
 
-    async uploadFile(fileId) {
+    async deleteFile(fileId) {
         try {
             return await this.bucket.deleteFile(
                 conf.appWriteBucketId,
