@@ -5,7 +5,7 @@ import services from "../../services/config.service.js";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function PostForm({ post }) {
+function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
     defaultValues: {
       title: post?.title || "",
@@ -88,7 +88,7 @@ export default function PostForm({ post }) {
           type="file"
           className="mb-4"
           accept="image/png, image/jpg, image/jpeg, image/gif"
-          {register("image", {required: !post})} />
+          {...register("image", {required: !post})} />
         {post && (
           <div className="w-full mb-4">
             <img
@@ -109,3 +109,5 @@ export default function PostForm({ post }) {
     </form>
   );
 }
+
+export default PostForm;
